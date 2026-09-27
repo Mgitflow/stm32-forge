@@ -29,3 +29,7 @@ skip-magic-trailing-comma = false
 [tool.ruff.lint.per-file-ignores]
 "src/api/server.py" = ["E402", "N803"]   # sys.path 引导 + http.server 惯例签名
 "scripts/**" = ["E402"]                   # 开发/自检脚本：sys.path 引导后导入项目包
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --tb=short --strict-markers -p no:cacheprovider"

@@ -12,3 +12,8 @@ build/
 *.hex
 *.elf
 *.bin
+
+# 非源码运行/会话产物（2026-09-27 归档提交时补）
+runtime/
+tmp/
+.workbuddy/
