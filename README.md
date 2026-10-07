@@ -86,6 +86,40 @@ python examples/run_example.py
 
 > 为什么是 407？——作者手头只有 407 开发板，只对 407 做了实测，所以这里只给 407 的最小肖像。**这是「示例」，不是项目全貌**：其他芯片请查官方手册，照「如何填内容」的格式自行补全。
 
+**实际输出长这样**（下面是真的跑出来的，不是示意）：
+
+```
+$ python scripts/self_check.py
+=== 骨架自检：5/5 通过 ===
+  [PASS] 契约结构: 契约字段 ['blocks', 'code', 'files', 'peripheral_type', 'status'] 齐全
+  [PASS] 校验规则: 106 条校验规则
+  [PASS] 核心模块 import: 23 个核心模块可 import
+  [PASS] 接口契约: 抽象接口 20 个
+  [PASS] assemble_routed 空车跑通: 缺模板时优雅降级，不崩溃
+
+$ python examples/run_example.py
+  agent_forge_board/Core/Src/main.c
+  agent_forge_board/Core/Src/gpio.c
+  agent_forge_board/Core/Src/stm32f4xx_hal_msp.c
+  agent_forge_board/Core/Startup/startup_stm32f407xx.s
+  agent_forge_board/Makefile
+  agent_forge_board/STM32F407ZGTx_FLASH.ld
+  ...
+
+生成的 gpio.c 点灯代码：
+------------------------------------------------------------
+  void MX_GPIO_Init(void)
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+------------------------------------------------------------
+```
+
+**「点灯」两个字，换来一个 11 文件的完整工程**（含启动文件、Makefile、链接脚本）。
+
 ### ③ 一条龙（生成 → 编译 → 烧录，需 ST 工具链 + 板子）
 
 ```bash
