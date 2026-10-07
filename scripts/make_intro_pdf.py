@@ -7,8 +7,8 @@
     python scripts/make_intro_pdf.py [输出目录]
 
 输出：
-    <输出目录>/项目介绍_agent-s-embedded-core.html  （浏览器打开）
-    <输出目录>/项目介绍_agent-s-embedded-core.pdf   （任何设备看，需本机有 Edge/Chrome）
+    <输出目录>/项目介绍_stm32-forge.html  （浏览器打开）
+    <输出目录>/项目介绍_stm32-forge.pdf   （任何设备看，需本机有 Edge/Chrome）
 """
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ import markdown
 
 CORE = Path(__file__).resolve().parent.parent
 OUT_DIR = Path(sys.argv[1]) if len(sys.argv) > 1 else CORE.parent
-NAME = "项目介绍_agent-s-embedded-core"
+NAME = "项目介绍_stm32-forge"
 OUT_HTML = OUT_DIR / f"{NAME}.html"
 OUT_PDF = OUT_DIR / f"{NAME}.pdf"
 
