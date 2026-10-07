@@ -43,7 +43,7 @@ def _collect_metrics() -> dict[str, Any]:
         stats = dict(_REQUEST_STATS)
         stats["by_path"] = dict(stats["by_path"])
         stats["uptime_s"] = round(time.time() - stats["started_at"], 1)
-    return {"agent": "agent-s-embedded", "version": APP_VERSION, "metrics": stats}
+    return {"agent": "stm32-forge", "version": APP_VERSION, "metrics": stats}
 
 def _load_settings() -> dict[str, Any]:
     """读取 config/settings.yaml（委托 infrastructure.config 统一入口）。"""
@@ -95,7 +95,7 @@ def _build_manifest(workspace: Any) -> AgentManifest:
     cfg_host, cfg_port, _ = _get_server_config()
     endpoint = f"http://localhost:{cfg_port}"
     return AgentManifest(
-        name="agent-s-embedded",
+        name="stm32-forge",
         role=AgentRole.LEFT_BRAIN,
         version=APP_VERSION,
         description="技术工作室：STM32/APM32 嵌入式代码生成引擎（识别套式 + 工程生成 + 真编译）",

@@ -246,7 +246,7 @@ class _StudioHandler(BaseHTTPRequestHandler):
             return
 
         if path == "/health":
-            self._send_json({"status": "ok", "agent": "agent-s-embedded"})
+            self._send_json({"status": "ok", "agent": "stm32-forge"})
         elif path == "/api/health":
             self._send_json(ui_adapter.get_health())
         elif path == "/api/system":
@@ -288,7 +288,7 @@ class _StudioHandler(BaseHTTPRequestHandler):
             ws = self._workspace
             if ws is None:
                 self._send_json({
-                    "name": "agent-s-embedded",
+                    "name": "stm32-forge",
                     "mode": "deterministic",
                     "note": "智能层剥离（无 workspace），/manifest 仅骨架信息",
                 })

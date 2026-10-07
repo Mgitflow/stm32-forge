@@ -36,7 +36,7 @@ def test_record_request_and_metrics(clean_stats):
     gh._record_request("/api/x", 30.0)
     gh._record_request("/api/y", 50.0)
     m = gh._collect_metrics()
-    assert m["agent"] == "agent-s-embedded" and m["version"] == gh.APP_VERSION
+    assert m["agent"] == "stm32-forge" and m["version"] == gh.APP_VERSION
     stats = m["metrics"]
     assert stats["total"] == 3
     assert stats["by_path"]["/api/x"] == 2

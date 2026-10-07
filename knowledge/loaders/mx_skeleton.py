@@ -969,7 +969,7 @@ class MxSkeleton(IMxSkeleton):
         manifest: dict[str, Any] = {
             "schema_version": "1.0",
             "generated_at": __import__("datetime").datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "generator": "Agent-S-Embedded",
+            "generator": "stm32-forge",
             "chip": {
                 "name": str(getattr(self.profile, "chip_name", "")),
                 "core": str(getattr(self.profile, "core", "")),

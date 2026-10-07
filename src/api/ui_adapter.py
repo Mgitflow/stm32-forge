@@ -29,7 +29,7 @@ def get_health() -> dict[str, Any]:
     """返回与 Agent-E UI 兼容的健康信息。"""
     return {
         "status": "ok",
-        "agent": "agent-s-embedded",
+        "agent": "stm32-forge",
         "lm_studio": {
             "model": MODEL_TIFA,
             "status": "unknown",

@@ -59,7 +59,7 @@ def _find_browser() -> str | None:
 def main() -> int:
     readme = (CORE / "README.md").read_text(encoding="utf-8")
     intro = (CORE / "docs/INTRODUCTION.md").read_text(encoding="utf-8")
-    combined = f"# Agent-S Embedded Core · 项目介绍\n\n{readme}\n\n---\n\n# 仓库介绍 · 核心逻辑与成品展示\n\n{intro}"
+    combined = f"# stm32-forge · 项目介绍\n\n{readme}\n\n---\n\n# 仓库介绍 · 核心逻辑与成品展示\n\n{intro}"
 
     body = markdown.markdown(combined, extensions=["tables", "fenced_code", "sane_lists"])
     html = f"<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n<meta charset=\"utf-8\">\n<title>{NAME}</title>\n<style>{_CSS}</style>\n</head>\n<body>\n{body}\n</body>\n</html>\n"

@@ -6,7 +6,7 @@ PROJECT_INFO_TEMPLATE = """# {project_name}
 - **芯片**: {chip_name} ({core})
 - **主频**: {clock}MHz
 - **Flash**: {flash}KB | SRAM: {ram}KB + CCM: {ccm}KB
-- **生成工具**: Agent-S-Embedded v{tool_version}
+- **生成工具**: stm32-forge v{tool_version}
 - **生成时间**: {timestamp}
 
 ## 外设配置
